@@ -40,7 +40,7 @@ def main():
             lbl_height_value["text"] = str(poke_dictionary["height"]) + " dm"
             lbl_weight_value["text"] = str(poke_dictionary["weight"]) + " hg"
             types_list = (t["type"]["name"] for t in poke_dictionary["types"])
-            lbl_type_value["text"] = ', '.join(types_list)
+            lbl_type_value["text"] = ", ".join(types_list).title()
             pb_hp_value["value"] = poke_dictionary["stats"][0]["base_stat"]
             pb_attack_value["value"] = poke_dictionary["stats"][1]["base_stat"]
             pb_defense_value["value"] = poke_dictionary["stats"][2]["base_stat"]
@@ -53,64 +53,63 @@ def main():
 
     #populate widgets in info frame
     lbl_height = ttk.Label(info_frame, text="Height:")
-    lbl_height.grid(row=0, column=0, padx=10, pady=10, sticky=E)
+    lbl_height.grid(row=0, column=0, padx=(10,5), pady=10, sticky=E)
     lbl_height['background'] = '#FFCB05'
     lbl_height_value = ttk.Label(info_frame)
-    lbl_height_value.grid(row=0, column=1, padx=10, pady=10, sticky=W)
+    lbl_height_value.grid(row=0, column=1, padx=(0,10), pady=10, sticky=W)
     lbl_height_value['background'] = '#FFCB05'
 
     lbl_weight = ttk.Label(info_frame, text="Weight:")
-    lbl_weight.grid(row=1, column=0, padx=10, pady=10, sticky=E)
+    lbl_weight.grid(row=1, column=0, padx=(10,5), pady=10, sticky=E)
     lbl_weight['background'] = '#FFCB05'
     lbl_weight_value = ttk.Label(info_frame)
-    lbl_weight_value.grid(row=1, column=1, padx=10, pady=10, sticky=W)
+    lbl_weight_value.grid(row=1, column=1, padx=(0,10), pady=10, sticky=W)
     lbl_weight_value['background'] = '#FFCB05'
 
     lbl_type = ttk.Label(info_frame, text="Type:")
-    lbl_type.grid(row=2, column=0, padx=10, pady=10, sticky=E)
+    lbl_type.grid(row=2, column=0, padx=(10,5), pady=10, sticky=E)
     lbl_type['background'] = '#FFCB05'
-    lbl_type_value = ttk.Label(info_frame)
-    lbl_type_value.grid(row=2, column=1, padx=10, pady=10, sticky=W)
+    lbl_type_value = ttk.Label(info_frame, width=15)
+    lbl_type_value.grid(row=2, column=1, padx=(0,10), pady=10, sticky=W)
     lbl_type_value['background'] = '#FFCB05'
 
     #populate widgets in stats frame
     lbl_hp = ttk.Label(stats_frame, text="HP:")
-    lbl_hp.grid(row=0, column=0, padx=10, pady=10, sticky=E)
+    lbl_hp.grid(row=0, column=0, padx=10, pady=(0,5), sticky=E)
     lbl_hp['background'] = '#FFCB05'
     pb_hp_value = ttk.Progressbar(stats_frame, length=200, maximum=255)
-    pb_hp_value.grid(row=0, column=1, padx=10, pady=10, sticky=W)
+    pb_hp_value.grid(row=0, column=1, padx=(0,10), pady=(0,5), sticky=W)
 
     lbl_attack = ttk.Label(stats_frame, text="Attack:")
-    lbl_attack.grid(row=1, column=0, padx=10, pady=10, sticky=E)
+    lbl_attack.grid(row=1, column=0, padx=10, pady=(0,5), sticky=E)
     lbl_attack['background'] = '#FFCB05'
     pb_attack_value = ttk.Progressbar(stats_frame, length=200, maximum=255)
-    pb_attack_value.grid(row=1, column=1, padx=10, pady=10, sticky=W)
+    pb_attack_value.grid(row=1, column=1, padx=(0,10), pady=(0,5), sticky=W)
 
     lbl_defense = ttk.Label(stats_frame, text="Defense:")
-    lbl_defense.grid(row=2, column=0, padx=10, pady=10, sticky=E)
+    lbl_defense.grid(row=2, column=0, padx=10, pady=(0,5), sticky=E)
     lbl_defense['background'] = '#FFCB05'
     pb_defense_value = ttk.Progressbar(stats_frame, length=200, maximum=255)
-    pb_defense_value.grid(row=2, column=1, padx=10, pady=10, sticky=W)
+    pb_defense_value.grid(row=2, column=1, padx=(0,10), pady=(0,5), sticky=W)
 
     lbl_special_attack = ttk.Label(stats_frame, text="Special Attack:")
-    lbl_special_attack.grid(row=3, column=0, padx=10, pady=10, sticky=E)
+    lbl_special_attack.grid(row=3, column=0, padx=10, pady=(0,5), sticky=E)
     lbl_special_attack['background'] = '#FFCB05'
     pb_special_attack_value = ttk.Progressbar(stats_frame, length=200, maximum=255)
-    pb_special_attack_value.grid(row=3, column=1, padx=10, pady=10, sticky=W)
+    pb_special_attack_value.grid(row=3, column=1, padx=(0,10), pady=(0,5), sticky=W)
 
     lbl_special_defense = ttk.Label(stats_frame, text="Special Defense:")
-    lbl_special_defense.grid(row=4, column=0, padx=10, pady=10, sticky=E)
+    lbl_special_defense.grid(row=4, column=0, padx=10, pady=(0,5), sticky=E)
     lbl_special_defense['background'] = '#FFCB05'
     pb_special_defense_value = ttk.Progressbar(stats_frame, length=200, maximum=255)
-    pb_special_defense_value.grid(row=4, column=1, padx=10, pady=10, sticky=W)
+    pb_special_defense_value.grid(row=4, column=1, padx=(0,10), pady=(0,5), sticky=W)
 
     lbl_speed = ttk.Label(stats_frame, text="Speed:")
-    lbl_speed.grid(row=5, column=0, padx=10, pady=10, sticky=E)
+    lbl_speed.grid(row=5, column=0, padx=10, pady=(0,5), sticky=E)
     lbl_speed['background'] = '#FFCB05'
     pb_speed_value = ttk.Progressbar(stats_frame, length=200, maximum=255)
-    pb_speed_value.grid(row=5, column=1, padx=10, pady=10, sticky=W)
+    pb_speed_value.grid(row=5, column=1, padx=(0,10), pady=(0,5), sticky=W)
     
-
     root.mainloop()
 
 main()
